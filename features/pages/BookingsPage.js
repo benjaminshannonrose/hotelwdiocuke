@@ -32,7 +32,7 @@ class BookingsPage extends Page {
     seeOneLessBookingAfterClickingDeleteBookingButton() {
         const before = $$('.hotelName').length;
         this.deleteButton.click();
-        acceptAlert();
+        browser.pause(1200);
         const after = $$('.hotelName').length;
         expect(after).to.equal(before-1);
     }

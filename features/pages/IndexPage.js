@@ -13,7 +13,8 @@ class IndexPage extends Page {
     get searchButton() {return $('#findHotel');}
     get hotelSearchBar() {return $('#hotelSearchBar');}
     get hotelName() {return browser.elements('.hotelName');}
-    get bookHotelButton() { return $('//*[@id="topTenHotels"]/div[2]/button');}
+    get bookHotelButtonOne() { return $('#topTenHotels > div:nth-child(2) > button');}
+    get bookHotelButtonTwo() { return $('#topTenHotels > div:nth-child(7) > button');}
     get viewBookingsLink() { return $('#viewBookings');}
 
     landsOn() {
@@ -54,17 +55,18 @@ class IndexPage extends Page {
     }
 
     clicksBookHotelButton() {
-        this.bookHotelButton.waitForVisible();
-        this.bookHotelButton.click();
+        this.bookHotelButtonOne.waitForVisible();
+        this.bookHotelButtonOne.click();
         acceptAlert();
     }
 
     clicksBookHotelButtonTwice() {
-        this.bookHotelButton.waitForVisible();
-        this.bookHotelButton.click();
-        acceptAlert();
-        this.bookHotelButton.click();
-        acceptAlert();
+        this.bookHotelButtonOne.waitForVisible();
+        this.bookHotelButtonOne.click();
+        browser.pause(1200);
+        this.bookHotelButtonTwo.waitForVisible();
+        this.bookHotelButtonTwo.click();
+        browser.pause(1200);
     }
 
     clicksViewBookingsLink() {
