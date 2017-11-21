@@ -14,7 +14,7 @@ class BookingsPage extends Page {
 
     twoBookingsShowing() {
         const array = $$('.hotelName');
-        expect(array.length).to.equal(3);
+        expect(array.length).to.equal(2);
     }
 
     clicksViewBookingButton() {
